@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import BarClock from './clock/BarClock';
 import Home from './home/Home';
 import Game from './TicTacToe/TicTacToe';
@@ -9,7 +9,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <div>
           <Nav variant="tabs" defaultActiveKey="/">
@@ -36,7 +36,7 @@ function App() {
           <Route path="/games" element={<Game />} />
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
