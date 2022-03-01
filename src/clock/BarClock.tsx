@@ -2,13 +2,21 @@ import React from 'react';
 
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
-class BarClock extends React.Component<{}, {time: Date}> {
+class BarClock extends React.Component<{}, {time: Date, some: String}> {
     interval: NodeJS.Timeout;
 
     constructor(props: any){
         super(props);
-        this.state = { time: new Date() };
-        this.interval = setInterval(() => this.setState({ time: new Date() }), 1000);
+        this.state = {
+            time: new Date(),
+            some: '',
+        };
+        this.interval = setInterval(
+            () => this.setState({
+                time: new Date(),
+                some: 'new state'
+            }),
+            1000);
     }
 
     render(): React.ReactNode {
@@ -23,6 +31,10 @@ class BarClock extends React.Component<{}, {time: Date}> {
                 <ProgressBar now={currentSecs / 60 * 100} label={currentSecs}></ProgressBar>
             </div>
         );
+    }
+
+    componentDidMount() {
+        
     }
     
     componentWillUnmount() {
