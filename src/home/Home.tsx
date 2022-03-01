@@ -1,9 +1,9 @@
 import logo from '../logo.svg';
 import '../App.css';
 
-export default function DefaultApp() {
+export default function Home() {
     return (
-        <div className="DefaultApp">
+        <div className="Home">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
             <p>

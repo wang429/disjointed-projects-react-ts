@@ -1,13 +1,13 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from 'react-router-dom';
 import BarClock from './clock/BarClock';
-import DefaultApp from './home/defaultApp';
+import Home from './home/Home';
 import Game from './TicTacToe/TicTacToe';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div>
         <Nav activeKey="/">
           <Nav.Item>
@@ -22,11 +22,11 @@ function App() {
         </Nav>
       </div>
       <Routes>
-        <Route path="/" element={<DefaultApp />} />
+        <Route path="/" element={<Home />} />
         <Route path="/clocks" element={<BarClock />} />
         <Route path="/games" element={<Game />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
