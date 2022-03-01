@@ -1,33 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import BarClock from './clock/BarClock'
-import Game from './TicTacToe/TicTacToe'
+import { Nav } from 'react-bootstrap';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import BarClock from './clock/BarClock';
+import DefaultApp from './home/defaultApp';
+import Game from './TicTacToe/TicTacToe';
 
 function App() {
   return (
-    <div className="App">
-      <div className="TicTacToe">
-        <Game />
+    <BrowserRouter>
+      <div>
+        <Nav activeKey="/">
+          <Nav.Item>
+            <Nav.Link href="/">Active</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/clocks">Clocks</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/Game">Game</Nav.Link>
+          </Nav.Item>
+        </Nav>
       </div>
-        <div className="Clock">
-          <BarClock />
-        </div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<DefaultApp />} />
+        <Route path="/clocks" element={<BarClock />} />
+        <Route path="/games" element={<Game />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
