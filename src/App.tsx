@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { HashRouter, Route, Routes } from 'react-router-dom';
-import BarClock from './clock/BarClock';
+import Clocks from './clock/Clocks';
 import Home from './home/Home';
 import Game from './TicTacToe/TicTacToe';
 import { Nav } from 'react-bootstrap';
@@ -32,7 +32,7 @@ function App() {
         </div>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/clocks" element={<BarClock />} />
+          <Route path="/clocks" element={<Clocks />} />
           <Route path="/games" element={<Game />} />
         </Routes>
       </div>
