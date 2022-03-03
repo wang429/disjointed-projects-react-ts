@@ -1,0 +1,38 @@
+.vert-clock-chart {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-column-gap: 5px;
+  height: 20vh;
+  width: auto;
+  padding: 5px 10px;
+}
+
+[class*="vert-clock-bar"] {
+  border-radius: 5px 5px 0 0;
+  transition: all .6s ease;
+  background-color: #0074d9;
+  color: white;
+  font-weight: 600;
+  grid-row-start: 1;
+  grid-row-end: 60;
+  display: flex;
+  justify-content: center;
+}
+
+[class*="vert-clock-bar"] span {
+  align-self: flex-end;
+}
+
+$totalRows: 60;
+
+@mixin chartValue($data) {
+  $result: $totalRows - $data;
+  grid-row-start: $result;
+}
+
+@for $i from 0 through $totalRows {
+  .vert-clock-bar-#{$i} {
+    @include chartValue($i);
+  }
+}

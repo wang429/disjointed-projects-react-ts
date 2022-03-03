@@ -7,7 +7,7 @@ export interface TimeProps {
     time: Date,
 }
 
-function BarClock(props: TimeProps) {
+export default function HorizontalBarClock(props: TimeProps) {
   let currentHours = props.time.getHours().toString();
   if (Math.ceil(Math.log10(props.time.getHours())) < 2) {
     currentHours = currentHours.padStart(2, '0');
@@ -46,5 +46,3 @@ function BarClock(props: TimeProps) {
     </Container>
   );
 }
-
-export default BarClock;

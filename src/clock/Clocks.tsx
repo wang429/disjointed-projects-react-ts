@@ -1,7 +1,8 @@
 import React from 'react'
 import { Card, Col, Row } from 'react-bootstrap';
 
-import BarClock from './BarClock'
+import HorizontalBarClock from './HorizontalBarClock'
+import VerticalBarClock from './VerticalBarClock'
 
 interface ClocksProps {
 }
@@ -33,7 +34,15 @@ export default class Clocks extends React.Component<ClocksProps, ClocksState> {
           <Card>
             <Card.Header as="h5">Bar Clock</Card.Header>
             <Card.Body>
-              <BarClock time={this.state.time} />
+              <HorizontalBarClock time={this.state.time} />
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <Card>
+            <Card.Header as="h5">Bar Clock</Card.Header>
+            <Card.Body>
+              <VerticalBarClock time={this.state.time} />
             </Card.Body>
           </Card>
         </Col>
