@@ -8,27 +8,39 @@ export interface TimeProps {
 }
 
 function BarClock(props: TimeProps) {
-  let currentHours = props.time.getHours();
-  let currentMins = props.time.getMinutes();
-  let currentSecs = props.time.getSeconds();
+  let currentHours = props.time.getHours().toString();
+  if (Math.ceil(Math.log10(props.time.getHours())) < 2) {
+    currentHours = currentHours.padStart(2, '0');
+  }
+  let currentMins = props.time.getMinutes().toString();
+  if (Math.ceil(Math.log10(props.time.getMinutes())) < 2) {
+    currentMins = currentMins.padStart(2, '0');
+  }
+  let currentSecs = props.time.getSeconds().toString();
+  if (Math.ceil(Math.log10(props.time.getSeconds())) < 2) {
+    currentSecs = currentSecs.padStart(2, '0');
+  }
   return (
     <Container>
       <Row>
+        <Col xs={2}>Hours</Col>
         <Col xs={1}>{currentHours}</Col>
         <Col>
-          <ProgressBar now={currentHours / 24 * 100} label={currentHours}></ProgressBar>
+          <ProgressBar now={props.time.getHours() / 24 * 100}></ProgressBar>
         </Col>
       </Row>
       <Row>
+        <Col xs={2}>Minutes</Col>
         <Col xs={1}>{currentMins}</Col>
         <Col>
-          <ProgressBar now={currentMins / 60 * 100} label={currentMins}></ProgressBar>
+          <ProgressBar now={props.time.getMinutes() / 60 * 100}></ProgressBar>
         </Col>
       </Row>
       <Row>
+        <Col xs={2}>Seconds</Col>
         <Col xs={1}>{currentSecs}</Col>
         <Col>
-          <ProgressBar now={currentSecs / 60 * 100} label={currentSecs}></ProgressBar>
+          <ProgressBar now={props.time.getSeconds() / 60 * 100}></ProgressBar>
         </Col>
       </Row>
     </Container>
